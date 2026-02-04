@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>每日背单词提醒</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <p class="app__eyebrow">Daily Words</p>
+        <h1>每天提醒背单词</h1>
+        <p class="app__subtitle">设置提醒时间，记录单词清单，准时推送复习提示。</p>
+      </header>
+
+      <section class="card">
+        <h2>提醒设置</h2>
+        <form id="reminder-form" class="form-grid">
+          <label class="field">
+            <span>每天提醒时间</span>
+            <input type="time" id="reminder-time" required />
+          </label>
+          <label class="field">
+            <span>提醒方式</span>
+            <select id="reminder-mode">
+              <option value="notification">浏览器通知</option>
+              <option value="banner">页面横幅</option>
+            </select>
+          </label>
+          <button type="submit" class="primary">保存提醒</button>
+        </form>
+        <div class="reminder-status" id="reminder-status"></div>
+      </section>
+
+      <section class="card">
+        <h2>今日单词</h2>
+        <form id="word-form" class="form-row">
+          <input
+            type="text"
+            id="word-input"
+            placeholder="输入一个新单词"
+            autocomplete="off"
+            required
+          />
+          <button type="submit" class="primary">添加</button>
+        </form>
+        <ul id="word-list" class="word-list"></ul>
+      </section>
+
+      <section class="card">
+        <h2>使用提示</h2>
+        <ul class="tips">
+          <li>第一次使用请允许浏览器通知权限。</li>
+          <li>每天会在设定时间提醒复习当日单词。</li>
+          <li>关闭页面后提醒会在下次打开时继续生效。</li>
+        </ul>
+      </section>
+    </main>
+
+    <div class="banner" id="banner" role="status" aria-live="polite"></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
